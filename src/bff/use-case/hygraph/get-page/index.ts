@@ -5,24 +5,18 @@ import { PageModel } from '../model/page';
 const execute = async ({
   slug,
   locale,
-  locales,
-  brandId,
-  draftMode
+  locales
 }: {
   slug?: string | string[];
   locale?: string;
   locales: string[];
-  brandId: string;
-  draftMode?: boolean;
 }) => {
   const slugTransformed = Array.isArray(slug) ? slug?.join('/') : slug || 'index';
 
   const { data: rawData, error: infrastructureError } = await HygraphRepository.getPageRequest(
-    brandId,
     slugTransformed,
     locales,
-    locale,
-    draftMode
+    locale
   );
 
   if (infrastructureError) {

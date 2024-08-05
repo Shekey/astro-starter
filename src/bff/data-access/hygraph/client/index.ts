@@ -1,13 +1,13 @@
+import { InMemoryCache } from '@apollo/client/cache/index.js';
 import {
   ApolloClient,
   ApolloLink,
   type ApolloQueryResult,
-  HttpLink,
-  InMemoryCache,
   type OperationVariables,
   type QueryOptions,
   from
-} from '@apollo/client';
+} from '@apollo/client/core/index.js';
+import { HttpLink } from '@apollo/client/link/http/index.js';
 import { cloneDeep } from '@apollo/client/utilities';
 import { GLOBAL_ENVS } from '@root/src/globalEnvs';
 import fetch from 'cross-fetch';
@@ -16,7 +16,7 @@ import { ApolloCacheOptions } from '../cache/apollo_cache';
 import { errorLoggerLink } from '../log/apollo_logger';
 
 const httpLink = new HttpLink({
-  uri: process.env.GRAPHCMS_ENDPOINT,
+  uri: GLOBAL_ENVS.HYGRAPH_ENDPOINT,
   fetch
 });
 
@@ -40,13 +40,14 @@ const hygraphCacheHeadersMiddleware = new ApolloLink((operation, forward) => {
 });
 
 const cache = new InMemoryCache();
+console.log(GLOBAL_ENVS.HYGRAPH_ENDPOINT);
 
 const client = new ApolloClient({
-  uri: process.env.GRAPHCMS_ENDPOINT,
+  uri: GLOBAL_ENVS.HYGRAPH_ENDPOINT,
   cache,
   defaultOptions: ApolloCacheOptions,
   link: from([hygraphCacheHeadersMiddleware, errorLoggerLink, httpLink]),
-  connectToDevTools: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+  connectToDevTools: !GLOBAL_ENVS.isProd
 });
 
 const clientProxy = {

@@ -17,7 +17,13 @@ const config: CodegenConfig = {
       presetConfig: {
         typesPath: './types'
       },
-      plugins: ['typescript-react-apollo']
+      plugins: [
+        {
+          'typescript-react-apollo': {
+            gqlImport: '@apollo/client/core/index.js#gql'
+          }
+        }
+      ]
     },
     'src/bff/data-access/hygraph/codegen/generated/types.ts': {
       plugins: ['typescript', 'typescript-operations']

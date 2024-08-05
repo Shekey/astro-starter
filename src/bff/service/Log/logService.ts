@@ -11,19 +11,19 @@ const log: Logger<ILogObj> = new Logger({
 });
 
 const logMessage = (source: Source, message: string) => {
-  const random = Math.random().toString(36).substr(2, 5);
+  const random = Math.random().toString(36).slice(2, 5);
   const sourceFormatted = source.padEnd(14, ' ');
   console.log(`${random} ${Colors[source]} ${sourceFormatted} \x1b[32m ${message}\x1b[0m`);
 };
 
 const logError = (source: Source, message: string) => {
-  const random = Math.random().toString(36).substr(2, 5);
+  const random = Math.random().toString(36).slice(2, 5);
   const sourceFormatted = source.padEnd(14, ' ');
   console.log(`${random} ${Colors[source]} ${sourceFormatted} \x1b[31m ${message}\x1b[0m`);
 };
 
-const logDuration = <T>(source: Source, funcName: string, promise: Promise<T>) => {
-  const random = Math.random().toString(36).substr(2, 5);
+const logDuration = async <T>(source: Source, funcName: string, promise: Promise<T>) => {
+  const random = Math.random().toString(36).slice(2, 5);
   const sourceFormatted = source.padEnd(14, ' ');
   const funcNameFormatted = funcName.padEnd(25, ' ');
   const start = Date.now();

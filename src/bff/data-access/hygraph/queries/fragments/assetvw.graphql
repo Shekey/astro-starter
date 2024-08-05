@@ -1,0 +1,7 @@
+fragment assetvw on AssetVw {
+  variant
+  alt
+  image {
+    ...image
+  }
+}

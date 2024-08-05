@@ -1,0 +1,15 @@
+query GetPage($where: PageWhereInput!, $locales: [Locale!]!) {
+  pages(where: $where, locales: $locales) {
+    id
+    title
+    description
+    slug
+    ogImage {
+      ...image
+    }
+    templates {
+      ...banner
+      ...hero
+    }
+  }
+}

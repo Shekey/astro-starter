@@ -1,0 +1,7 @@
+fragment banner on Banner {
+  text
+  description
+  image {
+    ...assetvw
+  }
+}

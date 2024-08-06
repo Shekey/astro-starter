@@ -1,8 +1,8 @@
 ---
 title: Consectetur adipisicing
+layout: blog
 date: 2020-08-23T16:40:00+01:00
-description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta et aliquam expedita nisi odit saepe.
-visibleInCMS: true
+rating: 3.5
 ---
 
 Amet aliquid est aut, repellat quidem doloremque iusto, illum quis perferendis, ipsum in repellendus? Sit iste libero doloremque esse, magnam consequatur dolor aliquam perferendis placeat delectus unde totam amet, magni tempora rem.

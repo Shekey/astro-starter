@@ -1,7 +1,7 @@
 import type { PageEntity, TODO } from '@infrastructure/hygraph/entity/Page/Page';
 import type { z } from 'zod';
 
-import { PageSchema } from './zod';
+import { PageSchema } from './schema';
 
 export type PageType = z.infer<typeof PageSchema>;
 

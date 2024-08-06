@@ -4,6 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "dev:netlify": "pnpm run proxy-server & pnpm dev",
+    "proxy-server": "npx netlify-cms-proxy-server",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -21,6 +23,7 @@
     "@astrojs/ts-plugin": "^1.9.1",
     "astro": "^4.13.1",
     "cross-fetch": "^4.0.0",
+    "decap-cms-app": "^3.1.11",
     "graphql": "^16.9.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -43,6 +46,8 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.35.0",
     "globals": "^15.9.0",
+    "netlify-cli": "^17.33.6",
+    "netlify-cms": "^2.10.192",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "typescript-eslint": "^8.0.1"

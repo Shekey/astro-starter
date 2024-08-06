@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Test } from '../components/Test'
+import { HygraphUseCase } from '../bff/use-case/hygraph';
+
+const data = await HygraphUseCase.GetPage.execute({ slug: "index", locale: "en", locales: ["en"]})
+---
+
+<Layout title="Welcome to Netlify.">
+  <main>
+  <Test />
+  <section class="max-w-full overflow-auto">
+    <pre>
+      {JSON.stringify(data, null, 2)}
+    </pre>
+  </section>
+  
+    <h1>Welcome to <span class="text-gradient">Netlify</span></h1>
+    <p class="instructions">
+      To get started, open the directory <code>src/pages/netlify</code> in your project.<br />
+      <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
+    </p>
+  </main>
+  <Fragment slot="last-things-to-load">
+    <!-- Include the script that builds the page and powers Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
+  </Fragment>
+</Layout>
+

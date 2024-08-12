@@ -1,0 +1,8 @@
+query GetPageSlugsForLocales {
+  pages {
+    localizations {
+      slug
+      locale
+    }
+  }
+}

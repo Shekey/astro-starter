@@ -1,9 +1,9 @@
-import { GetBlog } from './get-blog';
-import { GetBlogList } from './get-blog list';
-import { GetBlogStaticParams } from './get-blog-static-params';
+import { GetBlogList } from './get-list';
+import { GetBlog } from './get-single';
+import { GetNetlifyStaticParams } from './get-static-params';
 
 export const NetlifyUseCase = {
   GetBlogList,
   GetBlog,
-  GetBlogStaticParams
+  GetBlogStaticParams: GetNetlifyStaticParams
 };

@@ -1,8 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { HygraphUseCase } from '../bff/use-case/hygraph';
+import { HygraphUseCase } from '../../bff/use-case/hygraph';
+import Layout from '../../layouts/Layout.astro';
 
-const data = await HygraphUseCase.GetPage.execute({ slug: "index", locale: "en", locales: ["en"]})
+const { lang } = Astro.params;
+const data = await HygraphUseCase.GetPage.execute({ slug: "index", locale: lang, locales: [lang]})
+
+export async function getStaticPaths() {
+  return await HygraphUseCase.GetBlogStaticParams.execute();
+}
 ---
 
 <Layout title="Welcome to Hygraph.">

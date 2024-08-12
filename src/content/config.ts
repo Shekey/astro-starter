@@ -1,17 +1,19 @@
 // 1. Import utilities from `astro:content`
 import { defineCollection, z } from 'astro:content';
 
-import { BlogCollectionSchema } from './blog/__schema__';
+import { NetlifyCollectionSchema } from './handlers/__schema__';
+
+export const AVAILABLE_LANGUAGES = ['en', 'de'];
 
 // 2. Define a `type` and `schema` for each collection
-const blogCollection = defineCollection({
+const netlifyCollection = defineCollection({
   type: 'content',
-  schema: BlogCollectionSchema
+  schema: NetlifyCollectionSchema
 });
 
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
-  blog: blogCollection
+  netlify: netlifyCollection
 };
 
-export const COLLECTION_NAME = 'blog';
+export const COLLECTION_NAME = 'netlify';

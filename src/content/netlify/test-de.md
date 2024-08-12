@@ -1,8 +1,9 @@
 ---
-title: Consectetur adipisicing
-layout: blog
+title: Test german page
 date: 2020-08-23T16:40:00+01:00
 rating: 3.5
+language: de
+slug: test-de
 ---
 
 Amet aliquid est aut, repellat quidem doloremque iusto, illum quis perferendis, ipsum in repellendus? Sit iste libero doloremque esse, magnam consequatur dolor aliquam perferendis placeat delectus unde totam amet, magni tempora rem.

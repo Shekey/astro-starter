@@ -1,4 +1,4 @@
-import type { BlogSchemaType } from '@root/src/content/blog/__schema__';
+import type { NetlifySchemaType } from '@root/src/content/handlers/__schema__';
 import type { z } from 'zod';
 
 import { BlogSchema } from './schema';
@@ -6,20 +6,31 @@ import { BlogSchema } from './schema';
 export type PageType = z.infer<typeof BlogSchema>;
 
 export class BlogModel {
-  layout: string;
   title: string;
-  date: Date;
+  date: string;
   thumbnail: string;
-  rating: number;
-  body: string;
+  rating: string;
+  slug: string;
 
-  constructor(record: BlogSchemaType) {
+  mapRating(rating: number) {
+    return (
+      {
+        0: '☆☆☆☆☆',
+        1: '★☆☆☆☆',
+        2: '★★☆☆☆',
+        3: '★★★☆☆',
+        4: '★★★★☆',
+        5: '★★★★★'
+      }[rating] || '☆☆☆☆☆'
+    );
+  }
+
+  constructor(record: NetlifySchemaType & { slug: string }) {
     this.title = record.title;
-    this.layout = record.layout;
-    this.date = record.date;
+    this.date = record.date?.toLocaleString() || Date.now().toLocaleString();
     this.thumbnail = record.thumbnail || '';
-    this.rating = record.rating || 0;
-    this.body = record.body || '';
+    this.rating = this.mapRating(record.rating || 0);
+    this.slug = record.slug;
   }
 
   validate() {

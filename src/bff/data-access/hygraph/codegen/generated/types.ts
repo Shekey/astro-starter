@@ -2311,6 +2311,7 @@ export type ImageTransformationInput = {
 
 /** Locale system enumeration */
 export enum Locale {
+  De = 'de',
   /** System locale */
   En = 'en'
 }
@@ -5292,6 +5293,11 @@ export type BannerFragment = { __typename?: 'Banner', text: string, description:
 export type HeroFragment = { __typename?: 'Hero', title: string, image: Array<{ __typename?: 'AssetVw', variant: AssetPerVw, alt: string, image: { __typename?: 'Asset', url: string, width?: number | null, height?: number | null, mimeType?: string | null, alt?: string | null } }> };
 
 export type ImageFragment = { __typename?: 'Asset', url: string, width?: number | null, height?: number | null, mimeType?: string | null, alt?: string | null };
+
+export type GetPageSlugsForLocalesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetPageSlugsForLocalesQuery = { __typename?: 'Query', pages: Array<{ __typename?: 'Page', localizations: Array<{ __typename?: 'Page', slug?: string | null, locale: Locale }> }> };
 
 export type GetPageQueryVariables = Exact<{
   where: PageWhereInput;

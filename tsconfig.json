@@ -1,5 +1,5 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "astro/tsconfigs/base",
   "exclude": ["node_modules", "dist"],
   "types": ["node", "jest", "@testing-library/jest-dom"],
   "moduleResolution": ["node_modules", ".next", "node"],
@@ -24,17 +24,15 @@
       "@root/*": ["./*"],
       "@/*": ["./src/*"],
       "@infrastructure/*": ["./src/bff/data-access/*"],
+      "@use-case/*": ["./src/bff/use-case/*"],
       "@service/*": ["./src/bff/service/*"]
     },
     "incremental": true,
     "plugins": [
       {
-        "name": "next"
-      },
-      {
         "name": "@astrojs/ts-plugin"
       }
     ]
   },
-  "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.astro"]
+  "include": ["src/**/*.ts", "src/**/*.astro"]
 }

@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from 'astro:content';
 
 export const PageSchema = z.object({
   slug: z.string(),

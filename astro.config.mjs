@@ -15,6 +15,9 @@ export default defineConfig({
   ],
   i18n: {
     defaultLocale: DEFAULT_LOCALE,
-    locales: AVAILABLE_LOCALES
+    locales: AVAILABLE_LOCALES,
+    routing: {
+      redirectToDefaultLocale: true
+    }
   }
 });

@@ -3,14 +3,8 @@ import Layout from '@root/src/layouts/Layout.astro';
 import { NetlifyUseCase } from '@use-case/netlify';
 
 export async function getStaticPaths() {
-  const t = await NetlifyUseCase.GetBlogStaticParams.execute('netlify');
-  console.log(t, 'ttt');
-  return t;
+  return await NetlifyUseCase.GetBlogStaticParams.execute('netlify');
 }
-
-const { slug, lang } = Astro.params;
-const data = await NetlifyUseCase.GetBlog.execute(lang, slug);
-console.log(slug, lang, data);
 
 const { page } = Astro.props
 const { Content } = await page.render();
@@ -23,7 +17,7 @@ const { Content } = await page.render();
       To get started, open the directory <code>src/pages/netlify/[...slug]</code> in your project.<br />
       <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
     </p>
-  <Content />
+    <Content />
   </main>
 </Layout>
 

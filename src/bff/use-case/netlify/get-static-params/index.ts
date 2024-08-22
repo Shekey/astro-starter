@@ -10,7 +10,7 @@ const execute = async (collection: keyof ContentEntryMap) => {
     };
   }
 
-  const t = rawData?.flat().map((page) => {
+  return rawData?.flat().map((page) => {
     return {
       params: {
         slug: page?.slug,
@@ -19,7 +19,6 @@ const execute = async (collection: keyof ContentEntryMap) => {
       props: { page }
     };
   });
-  return t;
 };
 
 export const GetNetlifyStaticParams = {

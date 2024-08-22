@@ -1,5 +1,5 @@
 import type { PageEntity, TODO } from '@infrastructure/hygraph/entity/Page/Page';
-import type { z } from 'zod';
+import type { z } from 'astro:content';
 
 import { PageSchema } from './schema';
 

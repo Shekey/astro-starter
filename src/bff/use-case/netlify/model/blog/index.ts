@@ -1,5 +1,5 @@
 import type { NetlifySchemaType } from '@root/src/content/_handlers/__schema__';
-import type { z } from 'zod';
+import type { z } from 'astro:content';
 
 import { BlogSchema } from './schema';
 

@@ -3,7 +3,7 @@ import { HygraphUseCase } from '../../bff/use-case/hygraph';
 import Layout from '../../layouts/Layout.astro';
 
 const { lang } = Astro.params;
-const data = await HygraphUseCase.GetPage.execute({ slug: "index", locale: lang, locales: [lang]})
+const { data, error } = await HygraphUseCase.GetPage.execute({ slug: "index", locale: lang, locales: [lang]})
 
 export async function getStaticPaths() {
   return await HygraphUseCase.GetBlogStaticParams.execute();
@@ -18,9 +18,20 @@ export async function getStaticPaths() {
       <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
     </p>
     <section class="max-w-full overflow-auto">
-      <pre>
-        {JSON.stringify(data, null, 2)}
-      </pre>
+      {data && (
+        <img src={data?.ogImage?.url}
+          alt={data?.ogImage.alt}
+          width={data?.ogImage?.width}
+          height={data?.ogImage?.height}
+          class="mx-auto"
+        />
+        <h1>
+          {data.title}
+        </h1>
+        <p class="text-center">{data.description}</p>
+      )}
+
+      {error && <p class="text-center bg-orange-300 text-black border-fuchsia-400 p-4 rounded-lg text-3xl">Sorry, but looks like page doesn't exist</p>}
     </section>
     
   </main>

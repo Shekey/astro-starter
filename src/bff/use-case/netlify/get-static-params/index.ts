@@ -1,4 +1,4 @@
-import { NetlifyRepository } from '@root/src/content/handlers';
+import { NetlifyRepository } from '@root/src/content/_handlers';
 import type { ContentEntryMap } from 'astro:content';
 
 const execute = async (collection: keyof ContentEntryMap) => {

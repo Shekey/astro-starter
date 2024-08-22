@@ -1,4 +1,4 @@
-import type { NetlifySchemaType } from '@root/src/content/handlers/__schema__';
+import type { NetlifySchemaType } from '@root/src/content/_handlers/__schema__';
 import type { z } from 'zod';
 
 import { BlogSchema } from './schema';

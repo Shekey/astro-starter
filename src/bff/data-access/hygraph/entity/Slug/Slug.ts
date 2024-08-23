@@ -1,7 +1,7 @@
 import type { GetPageSlugsForLocalesQuery } from '../../codegen/generated/types';
 
 type Page = {
-  [x: string]: any;
+  [x: string]: unknown;
   locale: string;
   slug: string;
 };

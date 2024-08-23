@@ -1,7 +1,7 @@
 ---
 import { AVAILABLE_LANGUAGES } from "@root/src/content/config";
-import Card from "../../components/Card.astro";
-import Layout from "../../layouts/Layout.astro";
+import Card from "@components/Card.astro";
+import Layout from "@layouts/Layout.astro";
 
 const { lang } = Astro.params;
 
@@ -47,12 +47,12 @@ export function getStaticPaths() {
     </p>
     <ul role="list" class="link-card-grid">
       <Card
-        href=`${lang}/hygraph`
+        href=`/${lang}/hygraph`
         title="Hygraph"
         body="Get data from Hygraph."
       />
       <Card
-        href=`${lang}/netlify`
+        href=`/${lang}/netlify`
         title="Netlify"
         body="Get data from Netlify markdown."
       />

@@ -1,7 +1,7 @@
-import { GetBlogsRequest } from './requests/get-collection';
-import { GetNetlifyCollectionRequest } from './requests/get-entry';
+import { GetNetlifyCollectionRequest } from './requests/get-collection';
+import { GetNetlifyCollectionSlugEntryRequest } from './requests/get-entry';
 
 export const NetlifyRepository = {
   GetNetlifyCollectionRequest,
-  GetBlogsRequest
+  GetNetlifyCollectionSlugEntryRequest
 };

@@ -1,5 +1,5 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "astro/tsconfigs/base",
   "exclude": [
     "node_modules",
     "dist",
@@ -11,10 +11,13 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "strictNullChecks": true,
+    "allowJs": true,
     "baseUrl": ".",
     "paths": {
       "@root/*": ["*"],
       "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
       "@infrastructure/*": ["src/bff/data-access/*"],
       "@use-case/*": ["src/bff/use-case/*"],
       "@service/*": ["src/bff/service/*"]

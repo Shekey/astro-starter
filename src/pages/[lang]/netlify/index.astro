@@ -1,15 +1,13 @@
 ---
-import { AVAILABLE_LOCALES } from '@root/astro.config.mjs';
+import DataCard from '@components/DataCard.astro';
+import Layout from '@layouts/Layout.astro';
 import { NetlifyUseCase } from '@root/src/bff/use-case/netlify';
-import DataCard from '@root/src/components/DataCard.astro';
-import Layout from '@root/src/layouts/Layout.astro';
 
-export function getStaticPaths() {
-  return AVAILABLE_LOCALES?.map((locale) => ({ params: { lang: locale } })) || []
+export async function getStaticPaths() {
+  return await NetlifyUseCase.GetNetlifyIndexStaticParams.execute()
 }
 
-const { lang } = Astro.params;
-const data = await NetlifyUseCase.GetBlogList.execute(lang, 'netlify');
+const { data, error } = Astro.props;
 
 ---
 <Layout title="Welcome to Netlify.">
@@ -20,7 +18,7 @@ const data = await NetlifyUseCase.GetBlogList.execute(lang, 'netlify');
       <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
     </p>
     <section class="max-w-full overflow-auto grid grid-cols-2 gap-6 pb-12">
-      {data?.data?.map((item) => (
+      {data?.map((item) => (
         <DataCard
           title={item.title}
           thumbnail={item.thumbnail}
@@ -30,6 +28,8 @@ const data = await NetlifyUseCase.GetBlogList.execute(lang, 'netlify');
         />
       ))}
     </section>
+
+    {error && <p class="text-center bg-orange-300 text-black border-fuchsia-400 p-4 rounded-lg text-3xl">Sorry, but looks like page doesn't exist</p>}
   </main>
 </Layout>
 

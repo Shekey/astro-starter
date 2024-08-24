@@ -3,9 +3,10 @@ import {
   ApolloClient,
   ApolloLink,
   type ApolloQueryResult,
-  from,
   type OperationVariables,
-  type QueryOptions} from '@apollo/client/core/index.js';
+  type QueryOptions,
+  from
+} from '@apollo/client/core/index.js';
 import { HttpLink } from '@apollo/client/link/http/index.js';
 import { cloneDeep } from '@apollo/client/utilities';
 import { GLOBAL_ENVS } from '@root/src/globalEnvs';
@@ -39,7 +40,6 @@ const hygraphCacheHeadersMiddleware = new ApolloLink((operation, forward) => {
 });
 
 const cache = new InMemoryCache();
-console.log(GLOBAL_ENVS.HYGRAPH_ENDPOINT);
 
 const client = new ApolloClient({
   uri: GLOBAL_ENVS.HYGRAPH_ENDPOINT,

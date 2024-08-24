@@ -1,9 +1,9 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import { BlogUseCase } from '@use-case/blog';
+import { StaticUseCase } from '@use-case/static';
 
 export async function getStaticPaths() {
-  return BlogUseCase.GetNetlifySlugStaticParams.execute('blog');
+  return StaticUseCase.GetSlugStaticParams.execute('blog');
 }
 
 const { page } = Astro.props

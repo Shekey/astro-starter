@@ -1,10 +1,10 @@
 ---
 import DataCard from '@components/DataCard.astro';
 import Layout from '@layouts/Layout.astro';
-import { BlogUseCase } from '@use-case/blog';
+import { StaticUseCase } from '@use-case/static';
 
 export async function getStaticPaths() {
-  return BlogUseCase.GetNetlifyIndexStaticParams.execute('blog')
+  return StaticUseCase.GetIndexStaticParams.execute('blog')
 }
 
 const { data, error } = Astro.props;

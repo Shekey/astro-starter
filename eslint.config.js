@@ -11,7 +11,7 @@ export default [
   {
     files: ['**/*.{js,mjs,ts,jsx,tsx}'],
     ...pluginReact.configs.flat.recommended,
-    ignores: ['.astro', '*.md', '*.yaml', '.pnpm-store/', 'vite.config.ts'],
+    ignores: ['.astro/', '*.md', '*.yaml', '.pnpm-store/', 'vite.config.ts'],
     languageOptions: {
       ...pluginReact.configs.flat.recommended.languageOptions,
       globals: {

@@ -1,12 +1,13 @@
 import { AVAILABLE_LOCALES } from '@root/astro.config.mjs';
-import { BlogRepository } from '@root/src/content/_handlers';
+import { StaticRepository } from '@root/src/bff/data-access/static';
 import type { ContentEntryMap } from 'astro:content';
 
-import { BlogModel } from '../model/blog';
+import { BlogModel } from '../models/blog';
 
-const execute = async (collection: keyof ContentEntryMap) => Promise.all(
+const execute = async (collection: keyof ContentEntryMap) =>
+  Promise.all(
     AVAILABLE_LOCALES?.map(async (language) => {
-      const rawData = await BlogRepository.GetCollectionRequest(collection);
+      const rawData = await StaticRepository.GetCollectionRequest(collection);
 
       if (!rawData.length) {
         return {
@@ -53,6 +54,6 @@ const execute = async (collection: keyof ContentEntryMap) => Promise.all(
     })
   );
 
-export const GetNetlifyIndexStaticParams = {
+export const GetIndexStaticParams = {
   execute
 };

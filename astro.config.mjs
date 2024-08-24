@@ -8,7 +8,7 @@ export const AVAILABLE_LOCALES = ['en', 'de'];
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'hybrid',
+  output: 'server',
   adapter: awsAmplify(),
   integrations: [
     tailwind(),

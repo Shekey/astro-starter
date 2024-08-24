@@ -1,8 +1,3 @@
-# Astro Starter Kit: Basics
-
-```sh
-npm create astro@latest -- --template basics
-```
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
@@ -12,32 +7,33 @@ Inside of your Astro project, you'll see the following folders and files:
 ├── public/
 │   └── favicon.svg
 ├── src/
-        bff/
+│   │
+│   │──── bff/
 │   │   └── data-access/
-              └── hygraph/
-        └── service/
-              └── Log
-        └── use-case/
-                └── hygraph/
-                      └── get-static-params/
-                └── static/
-                      └── get-static-params/
+│   │   │       └── hygraph/
+│   │   └── service/
+│   │   │       └── Log
+│   │   └── use-case/
+│   │            └── hygraph/
+│   │                  └── get-static-params/
+│   │            └── static/
+│   │                  └── get-static-params/
 │   ├── components/
 │   │   └── Card.astro
 │   ├── layouts/
 │   │   └── Layout.astro
 │   ├── content/
 │   │   └── collection-1
-        └── collection-2
+│   │    └── collection-2
 |   ├──lib/
 │   │   └── utils
-              └── index
+│   │          └── index
 │   └── pages/
 │       └── index.astro
-        └── hygraph.astro
-        └── blog/
-            └── [...slug].astro
-            └── index.astro
+│        └── hygraph.astro
+│        └── blog/
+│            └── [...slug].astro
+│            └── index.astro
 └── package.json
 ```
 
@@ -51,15 +47,20 @@ Any static assets, like images, can be placed in the `public/` directory.
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command                   | Action                                            |
+| :------------------------ | :-----------------------------------------------  |
+| `pnpm install`             | Installs dependencies                            |
+| `pnpm run dev`             | Starts local dev server at `localhost:4321`      |
+| `pnpm run build`           | Build your production site to `./dist/`          |
+| `pnpm run preview`         | Preview your build locally, before deploying     |
+| `pnpm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm run codegen`         | Uses schema from .env and generates schema from  |
+                             | Graphql                                          |
+| `pnpm run lint`            | Check TS Errors                                  |
+| `pnpm run lint:fix`        | Fixes TS Errors                                  |
+| `pnpm run format`          | Formats all file per specified configuration     |
+| `pnpm run astro -- --help` | Get help using the Astro CLI                     |
 
 ## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Feel free to reach me out [Linkedin](https://www.linkedin.com/in/ajdin-sahinbegovic/).

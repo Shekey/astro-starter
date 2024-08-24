@@ -4,8 +4,6 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "dev:netlify": "pnpm run proxy-server & pnpm dev",
-    "proxy-server": "npx netlify-cms-proxy-server",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",

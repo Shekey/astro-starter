@@ -26,6 +26,9 @@ importers:
       astro:
         specifier: ^4.14.5
         version: 4.14.5(@types/node@22.1.0)(rollup@4.20.0)(typescript@5.5.4)
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       cross-fetch:
         specifier: ^4.0.0
         version: 4.0.0
@@ -41,6 +44,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      tailwind-merge:
+        specifier: ^2.5.2
+        version: 2.5.2
       tailwindcss:
         specifier: ^3.4.7
         version: 3.4.7(ts-node@10.9.2(@types/node@22.1.0)(typescript@5.5.4))
@@ -8418,6 +8424,9 @@ packages:
 
   tabtab@3.0.2:
     resolution: {integrity: sha512-jANKmUe0sIQc/zTALTBy186PoM/k6aPrh3A7p6AaAfF6WPSbTx1JYeGIGH162btpH+mmVEXln+UxwViZHO2Jhg==}
+
+  tailwind-merge@2.5.2:
+    resolution: {integrity: sha512-kjEBm+pvD+6eAwzJL2Bi+02/9LFLal1Gs61+QB7HvTfQQ0aXwC5LGT8PEt1gS0CWKktKe6ysPTAy3cBC5MeiIg==}
 
   tailwindcss@3.4.7:
     resolution: {integrity: sha512-rxWZbe87YJb4OcSopb7up2Ba4U82BoiSGUdoDr3Ydrg9ckxFS/YWsvhN323GMcddgU65QRy7JndC7ahhInhvlQ==}
@@ -20233,6 +20242,8 @@ snapshots:
       untildify: 3.0.3
     transitivePeerDependencies:
       - supports-color
+
+  tailwind-merge@2.5.2: {}
 
   tailwindcss@3.4.7(ts-node@10.9.2(@types/node@22.1.0)(typescript@5.5.4)):
     dependencies:

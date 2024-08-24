@@ -2,11 +2,11 @@ import { NetlifyRepository } from '@root/src/content/_handlers';
 import type { ContentEntryMap } from 'astro:content';
 
 const execute = async (collection: keyof ContentEntryMap) => {
-  const rawData = await NetlifyRepository.GetNetlifyCollectionRequest(collection);
+  const rawData = await NetlifyRepository.GetCollectionRequest(collection);
 
   if (!rawData.length) {
     return {
-      error: 'No blogs found'
+      error: 'Blog not found'
     };
   }
 

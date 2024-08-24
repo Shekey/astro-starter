@@ -5,14 +5,14 @@ import { GetPageDocument } from '../codegen/generated/graphql';
 import type { GetPageQuery, GetPageQueryVariables, Locale } from '../codegen/generated/types';
 import { PageEntity } from '../entity/Page/Page';
 
-export async function getPageRequest(slug: string, locales: string[], locale?: string) {
+export async function getPageRequest(slug: string, locale?: string) {
   const result = await LogService.logDuration(
     'HyGraphClient',
     `GetPageRequest`,
     client.query<GetPageQuery, GetPageQueryVariables>({
       query: GetPageDocument,
       variables: {
-        locales: [locale as Locale, ...(locales as Locale[])],
+        locales: [locale as Locale],
         where: {
           slug
         }

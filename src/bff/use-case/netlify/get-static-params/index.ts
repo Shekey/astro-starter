@@ -1,13 +1,13 @@
 import { AVAILABLE_LOCALES } from '@root/astro.config.mjs';
 import { NetlifyRepository } from '@root/src/content/_handlers';
+import type { ContentEntryMap } from 'astro:content';
 
 import { BlogModel } from '../model/blog';
 
-const execute = async () => {
-  const COLLECTION = 'netlify';
+const execute = async (collection: keyof ContentEntryMap) => {
   return await Promise.all(
     AVAILABLE_LOCALES?.map(async (language) => {
-      const rawData = await NetlifyRepository.GetNetlifyCollectionRequest(COLLECTION);
+      const rawData = await NetlifyRepository.GetCollectionRequest(collection);
 
       if (!rawData.length) {
         return {
@@ -25,7 +25,7 @@ const execute = async () => {
       const validatedData = languageSpecificData?.map((record) => {
         const data = record?.data;
         const { data: validatedData, error: validationErrors } = new BlogModel({
-          slug: `${COLLECTION}/${record?.slug}`,
+          slug: `${collection}/${record?.slug}`,
           title: data?.title || '',
           date: data?.date,
           language: data?.language,

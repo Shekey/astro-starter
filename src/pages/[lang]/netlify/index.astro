@@ -4,7 +4,7 @@ import Layout from '@layouts/Layout.astro';
 import { NetlifyUseCase } from '@root/src/bff/use-case/netlify';
 
 export async function getStaticPaths() {
-  return await NetlifyUseCase.GetNetlifyIndexStaticParams.execute()
+  return await NetlifyUseCase.GetNetlifyIndexStaticParams.execute('netlify')
 }
 
 const { data, error } = Astro.props;

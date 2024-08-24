@@ -1,7 +1,7 @@
-import { GetNetlifyCollectionRequest } from './requests/get-collection';
-import { GetNetlifyCollectionSlugEntryRequest } from './requests/get-entry';
+import { GetCollectionRequest } from './requests/get-collection';
+import { GetSlugEntryRequest } from './requests/get-entry';
 
 export const NetlifyRepository = {
-  GetNetlifyCollectionRequest,
-  GetNetlifyCollectionSlugEntryRequest
+  GetCollectionRequest,
+  GetSlugEntryRequest
 };

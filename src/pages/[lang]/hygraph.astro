@@ -5,7 +5,7 @@ import Layout from '@layouts/Layout.astro';
 const { data, error } = Astro.props;
 
 export async function getStaticPaths() {
-  return await HygraphUseCase.GetBlogStaticParams.execute();
+  return await HygraphUseCase.GetBlogStaticParams.execute('index');
 }
 ---
 

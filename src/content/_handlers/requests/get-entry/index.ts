@@ -1,8 +1,12 @@
-import { getCollection } from 'astro:content';
+import { type ContentEntryMap, getCollection } from 'astro:content';
 
-export const GetNetlifyCollectionSlugEntryRequest = async (lang: string, slug: string) => {
-  const [page] = await getCollection('netlify', (collection) => {
-    return collection.slug == slug && collection.data?.language == lang;
+export const GetSlugEntryRequest = async (
+  lang: string,
+  slug: string,
+  collection: keyof ContentEntryMap
+) => {
+  const [page] = await getCollection(collection, (record) => {
+    return record.slug == slug && record.data?.language == lang;
   });
 
   if (!page) {

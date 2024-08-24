@@ -3,7 +3,7 @@ import type { GetPageQuery } from '../../codegen/generated/types';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TODO = any;
 
-// Normaly this lives somewhere else
+// Usually this lives somewhere else
 export type Image = {
   url: string;
   width: number;

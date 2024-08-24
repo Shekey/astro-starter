@@ -1,5 +1,7 @@
-import { GetBlogStaticParams } from './get-blog-static-params';
+import { GetBlogStaticParams } from './page/get-blog-static-params';
 
 export const HygraphUseCase = {
-  GetBlogStaticParams
+  Page: {
+    GetBlogStaticParams
+  }
 };

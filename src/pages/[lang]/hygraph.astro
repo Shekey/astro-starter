@@ -5,7 +5,7 @@ import { HygraphUseCase } from '@use-case/hygraph';
 const { data, error } = Astro.props;
 
 export async function getStaticPaths() {
-  return HygraphUseCase.GetBlogStaticParams.execute('index');
+  return HygraphUseCase.Page.GetBlogStaticParams.execute('index');
 }
 ---
 
@@ -32,6 +32,6 @@ export async function getStaticPaths() {
 
       {error && <p class="text-center bg-orange-300 text-black border-fuchsia-400 p-4 rounded-lg text-3xl">Sorry, but looks like page doesn't exist</p>}
     </section>
-    
+
   </main>
 </Layout>

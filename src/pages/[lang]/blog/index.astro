@@ -4,7 +4,7 @@ import Layout from '@layouts/Layout.astro';
 import { StaticUseCase } from '@use-case/static';
 
 export async function getStaticPaths() {
-  return StaticUseCase.GetIndexStaticParams.execute('blog')
+  return StaticUseCase.Blog.GetIndexStaticParams.execute('blog')
 }
 
 const { data, error } = Astro.props;

@@ -1,4 +1,4 @@
-import type { NetlifySchemaType } from '@root/src/content/_handlers/__schema__';
+import type { BlogSchemaType } from '@root/src/content/_handlers/__schema__';
 import type { z } from 'astro:content';
 
 import { BlogSchema } from './schema';
@@ -25,7 +25,7 @@ export class BlogModel {
     );
   }
 
-  constructor(record: NetlifySchemaType & { slug: string }) {
+  constructor(record: BlogSchemaType & { slug: string }) {
     this.title = record.title;
     this.date = record.date?.toLocaleString() || Date.now().toLocaleString();
     this.thumbnail = record.thumbnail || '';

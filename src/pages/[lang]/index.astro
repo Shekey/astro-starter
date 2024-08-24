@@ -1,7 +1,7 @@
 ---
-import { AVAILABLE_LANGUAGES } from "@root/src/content/config";
 import Card from "@components/Card.astro";
 import Layout from "@layouts/Layout.astro";
+import { AVAILABLE_LANGUAGES } from "@root/src/content/config";
 import { conditionalClasses } from "@root/src/lib/utils";
 
 const { lang } = Astro.params;
@@ -43,28 +43,26 @@ export function getStaticPaths() {
     </svg>
     <p>Change language:</p>
     <ul class="flex flex-wrap">
-      {AVAILABLE_LANGUAGES.map((language, index) => {
-        return <li class={conditionalClasses("text-2xl uppercase", {
+      {AVAILABLE_LANGUAGES.map((language, index) => <li class={conditionalClasses("text-2xl uppercase", {
           "font-bold text-cyan-700": language === lang
         })}><a href={`/${language}`}>{language}</a>
         {
-         index !== AVAILABLE_LANGUAGES.length -1 && <span class="mr-2">|</span> 
-        }</li>
-      })}
+         index !== AVAILABLE_LANGUAGES.length -1 && <span class="mr-2">|</span>
+        }</li>)}
     </ul>
     <h1>Welcome to <span class="text-gradient">Astro Starter</span><span class="uppercase font-bold mx-5">[{lang}]</span></h1>
     <p class="instructions">
       To get started, open the directory <code>src/pages</code> in your project.<br />
       <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
     </p>
-    <ul role="list" class="link-card-grid">
+    <ul class="link-card-grid">
       <Card
         href=`/${lang}/hygraph`
         title="Hygraph"
         body="Get data from Hygraph."
       />
       <Card
-        href=`/${lang}/netlify`
+        href=`/${lang}/blog`
         title="Netlify"
         body="Get data from Netlify markdown."
       />

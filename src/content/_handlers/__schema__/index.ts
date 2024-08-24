@@ -1,6 +1,6 @@
 import { z } from 'astro:content';
 
-export const NetlifyCollectionSchema = z.object({
+export const BlogCollectionSchema = z.object({
   title: z.string(),
   date: z.date(),
   thumbnail: z.string().optional(),
@@ -8,4 +8,4 @@ export const NetlifyCollectionSchema = z.object({
   language: z.string()
 });
 
-export type NetlifySchemaType = z.infer<typeof NetlifyCollectionSchema>;
+export type BlogSchemaType = z.infer<typeof BlogCollectionSchema>;

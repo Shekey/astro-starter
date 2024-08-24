@@ -10,7 +10,7 @@ export class PageModel {
   slug: string;
   title: string;
   description: string;
-  templates: Array<TODO>;
+  templates: TODO[];
   ogImage?: {
     url: string;
     width: number;

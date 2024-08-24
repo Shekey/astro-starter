@@ -2,11 +2,11 @@ import { type ILogObj, Logger } from 'tslog';
 
 type Source = 'HyGraphClient';
 
-const Colors: Record<Source, string> = {
+const Colors: { [key in Source]: string } = {
   HyGraphClient: '\x1b[34m'
 };
 
-const log: Logger<ILogObj> = new Logger({
+const log = new Logger<ILogObj>({
   minLevel: 3
 });
 
@@ -41,7 +41,7 @@ const logDuration = async <T>(source: Source, funcName: string, promise: Promise
       console.log(
         `${random} ${
           Colors[source]
-        } ${sourceFormatted} \x1b[32m ${funcNameFormatted} ${timeColor} ${difference + 'ms'}\x1b[0m`
+        } ${sourceFormatted} \x1b[32m ${funcNameFormatted} ${timeColor} ${`${difference}ms`}\x1b[0m`
       );
       return response;
     })

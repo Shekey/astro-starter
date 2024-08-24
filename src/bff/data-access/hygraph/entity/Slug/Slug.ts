@@ -1,10 +1,10 @@
 import type { GetPageSlugsForLocalesQuery } from '../../codegen/generated/types';
 
-type Page = {
+interface Page {
   [x: string]: unknown;
   locale: string;
   slug: string;
-};
+}
 
 export class SlugEntity {
   public readonly pages?: Page[];
@@ -12,20 +12,16 @@ export class SlugEntity {
   constructor(record: GetPageSlugsForLocalesQuery) {
     this.pages =
       record.pages
-        ?.map((page) => {
-          return page?.localizations?.map((localization) => {
-            return {
+        ?.map((page) => page?.localizations?.map((localization) => ({
               locale: localization?.locale,
               slug: localization?.slug || ''
-            };
-          });
-        })
+            })))
         ?.flat() || [];
   }
 
   static from(record: GetPageSlugsForLocalesQuery) {
     const entity = new SlugEntity(record);
 
-    return Object.assign({}, entity);
+    return { ...entity};
   }
 }

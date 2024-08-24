@@ -4,13 +4,13 @@ import type { GetPageQuery } from '../../codegen/generated/types';
 export type TODO = any;
 
 // Usually this lives somewhere else
-export type Image = {
+export interface Image {
   url: string;
   width: number;
   height: number;
   mimeType: string;
   alt: string;
-};
+}
 
 export class PageEntity {
   public readonly slug?: string;
@@ -18,7 +18,7 @@ export class PageEntity {
   public readonly description: string;
   public readonly title: string;
   public readonly ogImage: Image;
-  public readonly templates: Array<TODO>;
+  public readonly templates: TODO[];
 
   constructor(record: GetPageQuery) {
     const page = record.pages[0];
@@ -39,6 +39,6 @@ export class PageEntity {
   static from(record: GetPageQuery) {
     const entity = new PageEntity(record);
 
-    return Object.assign({}, entity);
+    return { ...entity};
   }
 }

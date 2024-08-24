@@ -5,9 +5,10 @@ export const GetSlugEntryRequest = async (
   slug: string,
   collection: keyof ContentEntryMap
 ) => {
-  const [page] = await getCollection(collection, (record) => {
-    return record.slug == slug && record.data?.language == lang;
-  });
+  const [page] = await getCollection(
+    collection,
+    (record) => record.slug === slug && record.data?.language == lang
+  );
 
   if (!page) {
     return undefined;

@@ -6,3 +6,4 @@ coverage
 **/*.html
 
 src/bff/data-access/**/generated/*.ts
+pnpm-lock.yaml

@@ -1,35 +1,20 @@
-import pluginJs from '@eslint/js';
 import eslintPluginAstro from 'eslint-plugin-astro';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import pluginReact from 'eslint-plugin-react';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default [
-  pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  eslintPluginPrettierRecommended,
   {
-    ignores: ['**/*.d.ts', '**/generated/', 'tsconfig.json', '.astro']
+    ignores: ['**/*.d.ts', '**/generated/', 'tsconfig.json', '.astro/', 'dist/', 'node_modules/']
   },
   {
     files: ['**/*.{js,mjs,ts,jsx,tsx}'],
     ...pluginReact.configs.flat.recommended,
-    ignores: [
-      'node_modules/**/*',
-      'dist/**/*',
-      '*.js',
-      '*.json',
-      '*.md',
-      '*.yaml',
-      '.pnpm-store/',
-      'vite.config.ts',
-      '.astro'
-    ],
+    ignores: ['.astro', '*.md', '*.yaml', '.pnpm-store/', 'vite.config.ts'],
     languageOptions: {
       ...pluginReact.configs.flat.recommended.languageOptions,
       globals: {
-        ...globals.serviceworker,
         ...globals.browser,
         ...globals.react
       }

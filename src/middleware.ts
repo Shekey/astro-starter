@@ -3,10 +3,10 @@ import { defineMiddleware } from 'astro/middleware';
 
 // `context` and `next` are automatically typed
 export const onRequest = defineMiddleware((context, next) => {
-  const pathname = context.url.pathname;
+  const {pathname} = context.url;
 
-  const isLocaleSet = context?.params?.lang;
-  if (!isLocaleSet) {
+  const { currentLocale } = context;
+  if (!currentLocale) {
     return context.redirect(`/${DEFAULT_LOCALE}${pathname}`, 308);
   }
 

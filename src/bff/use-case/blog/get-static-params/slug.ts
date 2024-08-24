@@ -1,8 +1,8 @@
-import { NetlifyRepository } from '@root/src/content/_handlers';
+import { BlogRepository } from '@root/src/content/_handlers';
 import type { ContentEntryMap } from 'astro:content';
 
 const execute = async (collection: keyof ContentEntryMap) => {
-  const rawData = await NetlifyRepository.GetCollectionRequest(collection);
+  const rawData = await BlogRepository.GetCollectionRequest(collection);
 
   if (!rawData.length) {
     return {
@@ -10,15 +10,13 @@ const execute = async (collection: keyof ContentEntryMap) => {
     };
   }
 
-  return rawData?.flat().map((page) => {
-    return {
+  return rawData?.flat().map((page) => ({
       params: {
         slug: page?.slug,
         lang: page?.data?.language
       },
       props: { page }
-    };
-  });
+    }));
 };
 
 export const GetNetlifySlugStaticParams = {

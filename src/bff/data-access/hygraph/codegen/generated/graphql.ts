@@ -1,7 +1,8 @@
+import * as Apollo from '@apollo/client';
+import { gql } from '@apollo/client/core/index.js';
+
 import * as Types from './types';
 
-import { gql } from '@apollo/client/core/index.js';
-import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
 export const ImageFragmentDoc = gql`
     fragment image on Asset {

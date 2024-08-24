@@ -1,11 +1,11 @@
 ---
-import { HygraphUseCase } from '@use-case/hygraph';
 import Layout from '@layouts/Layout.astro';
+import { HygraphUseCase } from '@use-case/hygraph';
 
 const { data, error } = Astro.props;
 
 export async function getStaticPaths() {
-  return await HygraphUseCase.GetBlogStaticParams.execute('index');
+  return HygraphUseCase.GetBlogStaticParams.execute('index');
 }
 ---
 

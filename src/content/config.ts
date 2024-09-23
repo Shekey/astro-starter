@@ -16,4 +16,6 @@ export const collections = {
   blog: blogCollection
 };
 
+export type CollectionTypes = keyof typeof collections;
+
 export const COLLECTION_NAME = 'blog';

@@ -1,6 +1,0 @@
-fragment hero on Hero {
-  title
-  image {
-    ...assetvw
-  }
-}

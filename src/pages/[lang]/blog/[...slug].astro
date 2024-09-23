@@ -3,7 +3,7 @@ import Layout from '@layouts/Layout.astro';
 import { StaticUseCase } from '@use-case/static';
 
 export async function getStaticPaths() {
-  return StaticUseCase.Blog.GetSlugStaticParams.execute('blog');
+  return await StaticUseCase.Blog.GetSlugStaticParams.execute('blog');
 }
 
 const { page } = Astro.props

@@ -5,7 +5,7 @@ import { HygraphUseCase } from '@use-case/hygraph';
 const { data, error } = Astro.props;
 
 export async function getStaticPaths() {
-  return HygraphUseCase.Page.GetBlogStaticParams.execute('index');
+  return await HygraphUseCase.Page.GetBlogStaticParams.execute('index');
 }
 ---
 

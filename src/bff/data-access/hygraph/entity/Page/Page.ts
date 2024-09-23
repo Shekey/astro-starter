@@ -3,7 +3,6 @@ import type { GetPageQuery } from '../../codegen/generated/types';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TODO = any;
 
-// Usually this lives somewhere else
 export interface Image {
   url: string;
   width: number;
@@ -38,7 +37,6 @@ export class PageEntity {
 
   static from(record: GetPageQuery) {
     const entity = new PageEntity(record);
-
-    return { ...entity};
+    return { ...entity };
   }
 }

@@ -1,6 +1,6 @@
 import type { CodegenConfig } from '@graphql-codegen/cli';
 
-import { GLOBAL_ENVS } from '../../../../globalEnvs';
+import { GLOBAL_ENVS } from '@/globalEnvs';
 
 // here you can't use ts path aliases
 

@@ -5,7 +5,7 @@ import type { ContentEntryMap } from 'astro:content';
 import { BlogModel } from '../models/blog';
 
 const execute = async (collection: keyof ContentEntryMap) =>
-  Promise.all(
+  await Promise.all(
     AVAILABLE_LOCALES?.map(async (language) => {
       const rawData = await StaticRepository.GetCollectionRequest(collection);
 

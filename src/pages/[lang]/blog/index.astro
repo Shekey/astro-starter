@@ -1,10 +1,10 @@
 ---
-import DataCard from '@components/DataCard.astro';
+import DataCard from '@root/src/components/ThumbnailCard.astro';
 import Layout from '@layouts/Layout.astro';
 import { StaticUseCase } from '@use-case/static';
 
 export async function getStaticPaths() {
-  return StaticUseCase.Blog.GetIndexStaticParams.execute('blog')
+  return await StaticUseCase.Blog.GetIndexStaticParams.execute('blog')
 }
 
 const { data, error } = Astro.props;
